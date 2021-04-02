@@ -29,6 +29,7 @@
     border-radius: 5px;
     width: 173px;
     height: 25px;
+    border: none;
 }
 .form-group{
     margin-top: 10px;
