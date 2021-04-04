@@ -19,8 +19,8 @@ indexrouter.get('/home',async function (req,res){
         if(user.role === "student"){
             return res.render("home/homeStudent")
         }
-        if(user.role === "teacher"){
-            return res.render("home/homeTeacher")
+        if(user.role === "coordinator"){
+            return res.render("home/homeCoordinator")
         }
         
     } catch (error) {

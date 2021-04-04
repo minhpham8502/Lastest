@@ -143,7 +143,7 @@ fileRouter.post('/upload',upload.array('filePath',2),(req,res)=>{
                     });
                     let slug = req.cookies.slug
                     AccountModel.findOne({
-                        role: "teacher",
+                        role: "coordinator",
                         slug: slug
                     },function(err, result){
                         var content = email + 'just uploaded an article to the system. Name: ' + x;
@@ -208,7 +208,7 @@ fileRouter.post('/upload',upload.array('filePath',2),(req,res)=>{
                             });
                             let slug = req.cookies.slug
                             AccountModel.findOne({
-                                role: "teacher",
+                                role: "coordinator",
                                 slug: slug
                             },function(err, result){
                                 var content = email + 'just uploaded an article to the system. Name: ' + x;
@@ -284,7 +284,7 @@ fileRouter.post('/upload2',upload.array('filePath',2),(req,res)=>{
                             });
                             let slug = req.cookies.slug
                             AccountModel.findOne({
-                                role: "teacher",
+                                role: "coordinator",
                                 slug: slug
                             },function(err, result){
                                 var content = email + 'just uploaded an article to the system. Name: ' + x;
@@ -359,7 +359,7 @@ fileRouter.post('/upload2',upload.array('filePath',2),(req,res)=>{
                         });
                         let slug = req.cookies.slug
                         AccountModel.findOne({
-                            role: "teacher",
+                            role: "coordinator",
                             slug: slug
                         },function(err, result){
                             var content = email + 'just uploaded an article to the system. Name: ' + x;

@@ -16,12 +16,12 @@ let indexAdmin = (req,res)=>{
     })
 }
 
-let indexTeacher = (req,res)=>{
+let indexCoordinator = (req,res)=>{
     let email = req.cookies.email
     AccountModel.findOne({email : email})
     .then(data=>{
         console.log(data)
-        res.render('./home/homeTeacher',{account:data})
+        res.render('./home/homeCoordinator',{account:data})
 
     })
 }
@@ -109,8 +109,8 @@ let loginController = function(req,res){
             if(user.role === "student"){          
                 res.redirect("./indexStudent")
             }
-            if(user.role === "teacher"){
-                res.redirect("./indexTeacher")
+            if(user.role === "coordinator"){
+                res.redirect("./indexCoordinator")
             }
             if(user.role === "guest"){
                 res.redirect("./indexGuest")  
@@ -130,7 +130,7 @@ module.exports ={
     signUpController,
     loginController,
     indexAdmin,
-    indexTeacher,
+    indexCoordinator,
     indexStudent,
     indexManager,
     indexGuest

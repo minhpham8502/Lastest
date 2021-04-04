@@ -15,15 +15,15 @@ class messtController {
             res.render('./message/list_mess',{account : data})
         })
     }
-    listTeacher(req,res){
-        AccountModel.find({slug: req.params.slug,role: "teacher"})
+    listCoordinator(req,res){
+        AccountModel.find({slug: req.params.slug,role: "coordinator"})
         .then((data)=>{
             
-            res.render('./message/list_teacher',{account : data})
+            res.render('./message/list_coordinator',{account : data})
         })
     }
    
-    detailTeacher(req, res){
+    detailCoordinator(req, res){
         AccountModel.findOne({ email: req.cookies.email }, (err, cookies) => {
                 AccountModel.findOne({ email: req.params.email }, (err, data) => {
                             var isFriend = true;
@@ -37,7 +37,7 @@ class messtController {
                                     isFriend = false
                                     isMessage = true
                                 }             
-                                res.render('./message/teacher',{
+                                res.render('./message/coordinator',{
                                     data: data,
                                     cookies: cookies,
                                     isFriend: isFriend,
@@ -121,7 +121,7 @@ class messtController {
                 MongoClient.connect("mongodb+srv://minhpham852000:Quangminh2000@cluster0.46ara.mongodb.net/test", (err, db) => {
                     let dbo = db.db("test");
                     // find user send
-                    dbo.collection("account").findOne({ email: req.params.cookiesemail, role :"teacher" }, (err, cookiesemail) => {
+                    dbo.collection("account").findOne({ email: req.params.cookiesemail, role :"coordinator" }, (err, cookiesemail) => {
                         if (err) console.log(err);
                         // find user receive
                         dbo.collection("account").findOne({ email: req.params.user }, (err, user) => {

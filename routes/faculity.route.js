@@ -1,7 +1,7 @@
 var express = require('express');
 var FaculityModel = require('../models/faculity'); 
 var faculityRoute = express.Router();
-let {checkAuth,checkAdmin,checkTeacher } = require('../middleware/index')
+let {checkAuth,checkAdmin,checkCoordinator } = require('../middleware/index')
 const { isEmail } = require('../middleware/index');
 
 const faculityController = require('../controller/faculity.controller');
@@ -14,16 +14,16 @@ faculityRoute.get('/faculity/:slug', faculityController.detail)
 
 faculityRoute.post('/faculity/search', faculityController.search)
 faculityRoute.get('/allStudent/:slug/',faculityController.allstudent,)
-faculityRoute.get('/Teacher/:slug',faculityController.teacher)
+faculityRoute.get('/Coordinator/:slug',faculityController.coordinator)
 
-faculityRoute.get('/view:slug', checkTeacher,faculityController.viewmanagine)
-faculityRoute.get('/evaluate/:id', checkTeacher,faculityController.danhgiabaibao)
-faculityRoute.get('/allDocument/:email',checkTeacher ,faculityController.allDocument)
+faculityRoute.get('/view:slug', checkCoordinator,faculityController.viewmanagine)
+faculityRoute.get('/evaluate/:id', checkCoordinator,faculityController.danhgiabaibao)
+faculityRoute.get('/allDocument/:email',checkCoordinator ,faculityController.allDocument)
 
-faculityRoute.post('/dodanhgiabaibao:id', checkTeacher,faculityController.dodanhgiabaibao)
+faculityRoute.post('/dodanhgiabaibao:id', checkCoordinator,faculityController.dodanhgiabaibao)
 
-faculityRoute.post('/rate2:id', checkTeacher,faculityController.rate2)
-faculityRoute.get('/evaluate2nd/:id', checkTeacher,faculityController.danhgiabaibao2nd)
+faculityRoute.post('/rate2:id', checkCoordinator,faculityController.rate2)
+faculityRoute.get('/evaluate2nd/:id', checkCoordinator,faculityController.danhgiabaibao2nd)
 
 faculityRoute.use(checkAdmin);
 

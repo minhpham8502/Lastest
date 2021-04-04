@@ -24,8 +24,11 @@ var add_chat = {
                                 }
                     chatModel.create(chat2);
                        // send respond to client
-                   
-                    res.redirect('/message/send_message/'+req.cookies.email +'/'+req.params.email)
+                       if(cookies.role ==="student"){
+                        res.redirect('/message/send_messageCoordinator/'+req.cookies.email +'/'+req.params.email)
+                     }else{
+                        res.redirect('/message/send_message/'+req.cookies.email +'/'+req.params.email)
+                     }
                  })
             })   
             

@@ -104,8 +104,8 @@ let checkAdmin = (req,res,next)=>{
         })
     }
 }
-let checkTeacher = (req,res,next)=>{
-    if (req.userLocal.role === "teacher"){
+let checkCoordinator = (req,res,next)=>{
+    if (req.userLocal.role === "coordinator"){
         next()
     }else{
         return res.status(400).json({
@@ -132,6 +132,6 @@ module.exports ={
     checkAdmin,
     checkAuth,
     getUserById,
-    checkTeacher,
+    checkCoordinator,
     checkStudent
 }

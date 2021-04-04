@@ -34,7 +34,7 @@ var AccountRoutes = require('./routes/account.route')
 var faculityRoute = require('./routes/faculity.route')
 var indexrouter = require('./routes/index.route')
 var studentRoute = require('./routes/student.route')
-var teacherRoute = require('./routes/teacher.route')
+var coordinatorRoute = require('./routes/coordinator.route')
 var guestRoutes = require('./routes/guest.route')
 var manageRoutes = require('./routes/manage.route')
 var messRoutes = require('./routes/mess.route')
@@ -43,7 +43,7 @@ var messRoutes = require('./routes/mess.route')
 
 app.use('/guest', guestRoutes);
 app.use('/student', studentRoute);
-app.use('/teacher', teacherRoute);
+app.use('/coordinator', coordinatorRoute);
 app.use('/account', AccountRoutes);
 app.use('/faculity',faculityRoute);
 app.use('/',indexrouter);

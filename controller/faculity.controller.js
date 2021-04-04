@@ -148,13 +148,13 @@ class FaculityController {
 
     }
 
-    teacher(req,res){ 
+    coordinator(req,res){ 
         AccountModel.find({
             slug: req.params.slug,
-            role :'teacher'
+            role :'coordinator'
         })
         .then(data=>{
-        res.render('./teacher/teacher_profile', {teacher:data})
+        res.render('./coordinator/coordinator_profile', {coordinator:data})
     })  
 }
 

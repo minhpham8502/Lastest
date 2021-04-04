@@ -10,12 +10,12 @@ const add_chat = require('../controller/add_chat');
 
 
 messRoute.get('/:slug', messController.list)
-messRoute.get('/teacher/:slug', messController.listTeacher)
+messRoute.get('/coordinator/:slug', messController.listCoordinator)
 
-messRoute.get('/all/:email', messController.detailTeacher)
+messRoute.get('/all/:email', messController.detailCoordinator)
 messRoute.get('/allStudent/:email', messController.detailStudent)
 
-messRoute.get("/send_messageTeacher/:cookiesemail/:user", messController.get1);
+messRoute.get("/send_messageCoordinator/:cookiesemail/:user", messController.get1);
 messRoute.get("/send_message/:cookiesemail/:user", messController.get2);
 
 

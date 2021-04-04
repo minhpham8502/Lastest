@@ -6,13 +6,13 @@ var bcrypt = require('bcrypt');
 var saltRounds = 10;
 
 
-let addTeacher = (req,res)=>{
+let addCoordinator = (req,res)=>{
     FaculityModel.find(function(err,data){
-        res.render('./teacher/faculity_teacher',{faculity:data})    
+        res.render('./coordinator/faculity_coordinator',{faculity:data})    
 })
 }
 
-let doAddTeacher=(req,res)=>{
+let doAddCoordinator=(req,res)=>{
         let username = req.body.username;
         let password = req.body.password;
         let email = req.body.email;
@@ -28,7 +28,7 @@ let doAddTeacher=(req,res)=>{
                     password :hash,
                     email,
                     slug,
-                    role : "teacher",
+                    role : "coordinator",
                     phone,
                     birthday,
                     address
@@ -37,7 +37,7 @@ let doAddTeacher=(req,res)=>{
                     if(err){
                         console.log(err)
                     }else{
-                        res.redirect('/faculity/Teacher/'+req.body.slug)
+                        res.redirect('/faculity/Coordinator/'+req.body.slug)
 
                         
                     }
@@ -49,19 +49,19 @@ let update =(req,res)=>{
     .then((data)=>
         FaculityModel.find(function(err,data){
         }).then(data1=>{
-        res.render('teacher/updateTeacher',{account:data,faculity:data1})
+        res.render('coordinator/updateCoordinator',{account:data,faculity:data1})
 
         })
     )
 }
-let deleteTeacher = (req,res)=>{
+let deleteCoordinator = (req,res)=>{
     AccountModel.findById({_id:req.params.id},function(err,data){
         let slug = data.slug
         AccountModel.deleteOne({
             _id :  req.params.id
         })
         .then(()=>{
-            res.redirect('/faculity/Teacher/'+ slug)
+            res.redirect('/faculity/Coordinator/'+ slug)
         })
     })
     
@@ -73,15 +73,15 @@ let doupdate =(req,res)=>{
         _id : req.params.id
     }, req.body)
     .then(()=>{
-        res.redirect('/faculity/Teacher/'+ req.body.slug)
+        res.redirect('/faculity/Coordinator/'+ req.body.slug)
     })
 }
 
 module.exports ={
-    addTeacher,
-    doAddTeacher,
+    addCoordinator,
+    doAddCoordinator,
     doupdate,
-    deleteTeacher,
+    deleteCoordinator,
     update
 
 }

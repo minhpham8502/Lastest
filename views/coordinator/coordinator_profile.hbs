@@ -23,7 +23,7 @@
     </thead>
 
     <tbody>
-      {{#each teacher}}
+      {{#each coordinator}}
       <tr>
         <td>{{username}}</td>
         <td>{{email}}</td>
@@ -81,7 +81,7 @@
           <li><a href="/faculity/allfaculity">Faculity</a></li>
           <li><a href="/faculity/create"> Create Faculity </a></li>
           <li><a href="/student/addStudent">Create student</a></li>
-          <li><a href="/teacher/addTeacher">Create Coordinator</a></li>
+          <li><a href="/coordinator/addCoordinator">Create Coordinator</a></li>
         </ul>
 
       </div>
@@ -89,7 +89,7 @@
         <h1>Marketing Coordinator profile</h1>
         <table class="table">
           <thead>
-            {{#each teacher}}
+            {{#each coordinator}}
             <tr>
               <th>Username</th>
               <td>{{username}}</td>
@@ -116,10 +116,10 @@
             </tr>
             <tr>
               <td rowspan="2">Acction</td>
-              <td><a href="/teacher/delete{{_id}}">Delete</a></td>
+              <td><a href="/coordinator/delete{{_id}}">Delete</a></td>
             </tr>
             <tr>
-              <td><a href="/teacher/update{{_id}}">Update</a></td>
+              <td><a href="/coordinator/update{{_id}}">Update</a></td>
             </tr>
             {{/each}}
           </thead>
